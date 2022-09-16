@@ -1,0 +1,9 @@
+local lsputil = require("lsputil");
+vim.lsp.handlers["textDocument/codeAction"] = lsputil.codeAction.code_action_handler
+vim.lsp.handlers["textDocument/references"] = lsputil.locations.references_handler
+vim.lsp.handlers["textDocument/definition"] = lsputil.locations.definition_handler
+vim.lsp.handlers["textDocument/declaration"] = lsputil.locations.declaration_handler
+vim.lsp.handlers["textDocument/typeDefinition"] = lsputil.locations.typeDefinition_handler
+vim.lsp.handlers["textDocument/implementation"] = lsputil.locations.implementation_handler
+vim.lsp.handlers["textDocument/documentSymbol"] = lsputil.symbols.document_handler
+vim.lsp.handlers["workspace/symbol"] = lsputil.symbols.workspace_handler

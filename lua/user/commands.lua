@@ -6,7 +6,7 @@ M.startLsp = function(lsp_name)
 	local lspconfig = require "lspconfig"
 	local serverconfig = lspconfig[lsp_name]
 	if serverconfig == nil then
-		print("LSP Config is null")
+		vim.notify("LSP Config is null")
 		return
 	end
 	local opts = lib.in_table(customConfigs, lsp_name)
@@ -15,5 +15,26 @@ M.startLsp = function(lsp_name)
 	serverconfig.setup(opts)
 end
 
-vim.api.nvim_command([[command! -nargs=1 StartLsp :lua require("user.commands").startLsp(<f-args>)]])
+local get_installed_servers = function()
+	local handle = io.popen("ls $HOME/.local/share/nvim/lsp_servers")
+	local result = handle:read("*a")
+	handle:close()
+	return split(result)
+end
+
+function split (inputstr)
+        local t={}
+        for str in string.gmatch(inputstr, "[%w_]+") do
+                table.insert(t, str)
+        end
+        return t
+end
+vim.api.nvim_create_user_command("StartLsp", function (props)
+	M.startLsp(props.args)
+end, {
+		nargs = 1,
+		complete = function(_, _)
+			return get_installed_servers()
+		end
+	})
 return M;

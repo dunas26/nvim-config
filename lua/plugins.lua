@@ -80,5 +80,16 @@ return require("packer").startup(
 			}
 		}
 		use "mg979/vim-visual-multi"
+		use {
+			"folke/todo-comments.nvim",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("todo-comments").setup{}
+			end
+		}
+		use {
+			"nvim-telescope/telescope-fzf-native.nvim", 
+			run = "make"
+		}
 	end
 )

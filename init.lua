@@ -30,6 +30,8 @@ require("config/which-key")
 require("telescope").setup();
 -- Enable Nvim Comment
 require("nvim_comment").setup({comment_empty = false})
+-- Load FZF for telescope
+require("telescope").load_extension("fzf")
 
 -- Emmet Vim configuration
 vim.g.user_emmet_leader_key = "<C-K>";
@@ -50,6 +52,7 @@ vim.o.expandtab = false;
 vim.o.number = true;
 vim.o.relativenumber = true;
 vim.o.swapfile = false;
+vim.o.signcolumn = "yes:2";
 
 -- Mappings
 vim.keymap.set({'i', 'c', 'v'}, 'jk', '<Esc>');

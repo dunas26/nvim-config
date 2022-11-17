@@ -12,9 +12,13 @@ local M = {
 		vim.lsp.buf.format,
 		"Format",
 	},
-	K = {
+	k = {
 		vim.lsp.buf.hover,
 		"Hover",
+	},
+	d = {
+		vim.diagnostic.open_float,
+		"Open Diagnostics",
 	},
 	g = {
 		name = "Go to ...",

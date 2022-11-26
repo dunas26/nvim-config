@@ -33,6 +33,8 @@ require("telescope").setup();
 require("nvim_comment").setup({comment_empty = false})
 -- Load FZF for telescope
 require("telescope").load_extension("fzf")
+-- Load Leap nvim
+require("leap").add_default_mappings()
 
 -- Emmet Vim configuration
 vim.g.user_emmet_leader_key = "<C-K>";

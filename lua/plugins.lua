@@ -50,7 +50,7 @@ return require("packer").startup(
 		}
 		use "christoomey/vim-tmux-navigator"
 		use "tpope/vim-surround"
-		use "ggandor/lightspeed.nvim"
+		use "ggandor/leap.nvim"
 		use "wellle/targets.vim"
 		use {
 			"nvim-treesitter/nvim-treesitter",

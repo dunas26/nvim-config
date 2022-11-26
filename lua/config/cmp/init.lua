@@ -64,11 +64,10 @@ cmp.setup.cmdline(':', {
 	})
 });
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities());
-local enabled_lsp = {
-}
+local capabilities = require("cmp_nvim_lsp").default_capabilities();
 local lspconfig = require("lspconfig");
-for _,v in pairs(enabled_lsp) do
+local servers = require("mason-lspconfig").get_installed_servers();
+for _,v in pairs(servers) do
 	lspconfig[v].setup {
 		capabilities = capabilities
 	}

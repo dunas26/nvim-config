@@ -93,5 +93,11 @@ return require("packer").startup(
 			"nvim-telescope/telescope-fzf-native.nvim",
 			run = "make"
 		}
+		use {
+			"dnlhc/glance.nvim",
+			config = function()
+				require("glance").setup {}
+			end
+		}
 	end
 )

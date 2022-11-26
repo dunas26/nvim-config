@@ -31,7 +31,7 @@ return require("packer").startup(
 			tag = "nightly"
 		}
 		use { "folke/which-key.nvim" }
-		use { "folke/trouble.nvim", 
+		use { "folke/trouble.nvim",
 			requires = {
 				"kyazdani42/nvim-web-devicons",
 				opt = true
@@ -44,7 +44,7 @@ return require("packer").startup(
 				{ "hrsh7th/cmp-nvim-lsp" },
 				{ "hrsh7th/cmp-buffer" },
 				{ "hrsh7th/cmp-path" },
-				{ "hrsh7th/cmp-cmdline"},
+				{ "hrsh7th/cmp-cmdline" },
 				{ "hrsh7th/vim-vsnip", requires = { "hrsh7th/cmp-vsnip" } },
 			},
 		}
@@ -65,12 +65,13 @@ return require("packer").startup(
 		use "terrortylor/nvim-comment"
 		use {
 			"prettier/vim-prettier",
-			run="yarn install --frozen-lockfile --production",
-			ft={"javascript", "typescript", "css", "less", "scss", "json", "graphql", "markdown", "vue", "svelte", "yaml", "html"}
+			run = "yarn install --frozen-lockfile --production",
+			ft = { "javascript", "typescript", "css", "less", "scss", "json", "graphql", "markdown", "vue", "svelte", "yaml",
+				"html" }
 		}
 		use {
 			"RishabhRD/nvim-lsputils",
-			requires = {"RishabhRD/popfix"}
+			requires = { "RishabhRD/popfix" }
 		}
 		use "wellle/context.vim"
 		use "mattn/emmet-vim"
@@ -85,11 +86,11 @@ return require("packer").startup(
 			"folke/todo-comments.nvim",
 			requires = "nvim-lua/plenary.nvim",
 			config = function()
-				require("todo-comments").setup{}
+				require("todo-comments").setup {}
 			end
 		}
 		use {
-			"nvim-telescope/telescope-fzf-native.nvim", 
+			"nvim-telescope/telescope-fzf-native.nvim",
 			run = "make"
 		}
 	end

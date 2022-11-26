@@ -19,7 +19,8 @@ require("nvim-treesitter.configs").setup{
 -- Enable LuaLine
 require("config/lualine");
 -- Nvim Lsp Installer
-require("nvim-lsp-installer").setup();
+require("mason").setup();
+require("mason-lspconfig").setup();
 -- Enable NvimTree
 require("nvim-tree").setup();
 -- Nvim CMP

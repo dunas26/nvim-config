@@ -34,7 +34,7 @@ vim.api.nvim_create_user_command("StartLsp", function (props)
 end, {
 		nargs = 1,
 		complete = function(_, _)
-			return get_installed_servers()
+			return require"mason-lspconfig".get_installed_servers()
 		end
 	})
 return M;

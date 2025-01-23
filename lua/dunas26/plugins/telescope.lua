@@ -13,8 +13,10 @@ return {
 		local telescope = require"telescope"
 		local actions = require"telescope.actions"
 		local wk = require"which-key"
+
 		telescope.setup({
 			defaults = {
+				path_display = { filename_first = { reverse_directories = true } },
 				mappings = {
 					i = {
 						["<S-Tab>"] = actions.move_selection_previous,

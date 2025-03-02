@@ -12,6 +12,17 @@ return {
 		-- optionally enable 24-bit colour
 		vim.opt.termguicolors = true
 
-		nvimtree.setup({})
+		nvimtree.setup({
+			renderer = {
+				icons = {
+					glyphs = {
+						folder = {
+							arrow_closed = "",
+							arrow_open = "",
+						},
+					},
+				},
+			},
+		})
 	end
 }

@@ -91,6 +91,22 @@ return {
 			end,
 			["ts_ls"] = function()
 				lspconfig["ts_ls"].setup({
+					filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = vim.fn.stdpath 'data' ..
+										'mason/packages/vue-language-server/node_modules/@vue/language-server',
+								languages = { 'vue' },
+							}
+						},
+						preferences = {
+							includeCompletionsForModuleExports = true,
+							includeCompletionsForImportStatements = true,
+							importModuleSpecifierPreference = "relative",
+						},
+					},
 					capabilities = capabilities,
 					single_file_support = false,
 					root_dir = function(fname, bufnr)
@@ -99,8 +115,56 @@ return {
 							return nil
 						end
 						return lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json")(fname, bufnr)
-					end
+					end,
+					settings = {
+						typescript = {
+							tsserver = {
+								useSyntaxServer = false,
+							},
+							inlayHints = {
+								includeInlayParameterNameHints = 'all',
+								includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+								includeInlayFunctionParameterTypeHints = true,
+								includeInlayVariableTypeHints = true,
+								includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+								includeInlayPropertyDeclarationTypeHints = true,
+								includeInlayFunctionLikeReturnTypeHints = true,
+								includeInlayEnumMemberValueHints = true,
+							},
+						},
+					},
 				})
+			end,
+			["volar"] = function()
+				lspconfig["volar"].setup {
+					init_options = {
+						vue = {
+							hybridMode = false,
+						},
+					},
+					settings = {
+						typescript = {
+							inlayHints = {
+								enumMemberValues = {
+									enabled = true,
+								},
+								functionLikeReturnTypes = {
+									enabled = true,
+								},
+								propertyDeclarationTypes = {
+									enabled = true,
+								},
+								parameterTypes = {
+									enabled = true,
+									suppressWhenArgumentMatchesName = true,
+								},
+								variableTypes = {
+									enabled = true,
+								},
+							},
+						},
+					},
+				}
 			end,
 			["graphql"] = function()
 				-- configure graphql language server
